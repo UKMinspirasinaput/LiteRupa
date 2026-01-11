@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="viewPagerBanner" type="id" />
+    <item name="ivPreview" type="id" />
+    <item name="et_search_main" type="id" />
+    <item name="btn_do_search" type="id" />
+    <item name="etEmail" type="id" />
+    <item name="etPassword" type="id" />
+    <item name="tvNamaUser" type="id" />
+    <item name="tvEmailUser" type="id" />
+    <item name="btnPusatBantuan" type="id" />
+    <item name="btnAlamatPengiriman" type="id" />
+    <item name="tvAlamatUser" type="id" />
+    <item name="btnBackAccount" type="id" />
+    <item name="tvDataKeranjang" type="id" />
+    <item name="tvTotalBayar" type="id" />
+</resources>

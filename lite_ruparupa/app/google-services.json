@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1023056447308",
+    "project_id": "lite-ruparupa-139a5",
+    "storage_bucket": "lite-ruparupa-139a5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1023056447308:android:08b1d5ec65db75227231e9",
+        "android_client_info": {
+          "package_name": "com.example.literupa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLbAt_rgNXo4S6zJ6OnoRtQPzWFqqfo6Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@drawable/bg_orange_gradient">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Daftar Akun Baru"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:id="@+id/etNama"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:hint="Nama Lengkap"
+        android:background="@drawable/bg_outline_btn"
+        android:paddingStart="20dp"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="15dp"/>
+
+    <EditText
+        android:id="@+id/etEmailDaftar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:hint="Email"
+        android:background="@drawable/bg_outline_btn"
+        android:paddingStart="20dp"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="15dp"/>
+
+    <EditText
+        android:id="@+id/etPasswordDaftar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:background="@drawable/bg_outline_btn"
+        android:paddingStart="20dp"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="30dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnProsesDaftar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="Daftar Sekarang"
+        android:background="@drawable/bg_white_btn"
+        android:textStyle="bold"/>
+</LinearLayout>

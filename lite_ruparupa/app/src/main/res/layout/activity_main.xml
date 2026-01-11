@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F8F8">
+
+    <!-- 1. HEADER -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/et_search_main"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_search_outline"
+            android:hint="Cari di RupaRupa Lite"
+            android:paddingStart="12dp"
+            android:paddingEnd="10dp"
+            android:drawableStart="@android:drawable/ic_menu_search"
+            android:drawablePadding="8dp"
+            app:drawableTint="#F26522"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
+            android:textColor="#000000"
+            android:textColorHint="#888888" />
+
+        <!-- Garis Vertikal Orange (Hanya satu) -->
+        <View
+            android:layout_width="1.5dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="12dp"
+            android:background="#F26522" />
+
+        <!-- Tombol Favorit (Hanya satu) -->
+        <ImageView
+            android:id="@+id/btn_favorite_header"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="12dp"
+            android:src="@android:drawable/btn_star_big_on"
+            app:tint="#F26522" />
+
+        <!-- Tombol Keranjang (Hanya satu) -->
+        <!-- Tombol Keranjang dengan Badge Angka -->
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp">
+
+            <ImageView
+                android:id="@+id/btn_cart"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_keranjang"
+                app:tint="#F26522" />
+
+            <!-- Angka Merah (Badge) -->
+            <TextView
+                android:id="@+id/tv_cart_count"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="-4dp"
+                android:layout_marginEnd="-4dp"
+                android:background="@android:color/holo_red_dark"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:visibility="gone" /> <!-- Sembunyi jika 0 -->
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintTop_toBottomOf="@id/header">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+            <!-- 2. BANNER -->
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPagerBanner"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Rekomendasi Untukmu"
+                android:textColor="#212121"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- GRID 20 PRODUK -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alignmentMode="alignMargins"
+                android:columnCount="2"
+                android:padding="8dp">
+
+                <!-- Produk 1 - Levi Kabinet -->
+                <androidx.cardview.widget.CardView android:id="@+id/cardProduk1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp">
+                        <ImageView android:id="@+id/img1" android:layout_width="match_parent" android:layout_height="120dp" android:scaleType="centerCrop" android:src="@drawable/levikabinet" />
+                        <ImageView android:id="@+id/btn_star_1" android:layout_width="24dp" android:layout_height="24dp" android:layout_alignParentEnd="true" android:src="@android:drawable/btn_star_big_off" />
+                        <TextView android:id="@+id/txt1" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/img1" android:layout_marginTop="8dp" android:text="Levi Kabinet" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/txt1" android:text="Rp1.699.000" android:textColor="#F26522" android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Produk 2 - Wadah Plastik -->
+                <androidx.cardview.widget.CardView android:id="@+id/cardProduk2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp">
+                        <ImageView android:id="@+id/img2" android:layout_width="match_parent" android:layout_height="120dp" android:scaleType="centerCrop" android:src="@drawable/wadahplastik" />
+                        <ImageView android:id="@+id/btn_star_2" android:layout_width="24dp" android:layout_height="24dp" android:layout_alignParentEnd="true" android:src="@android:drawable/btn_star_big_off" />
+                        <TextView android:id="@+id/txt2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/img2" android:layout_marginTop="8dp" android:text="Wadah Plastik" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/txt2" android:text="Rp39.900" android:textColor="#F26522" android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Produk 3 - Kursi Lipat -->
+                <androidx.cardview.widget.CardView android:id="@+id/cardProduk3" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp">
+                        <ImageView android:id="@+id/img3" android:layout_width="match_parent" android:layout_height="120dp" android:scaleType="centerCrop" android:src="@drawable/kursilipat" />
+                        <ImageView android:id="@+id/btn_star_3" android:layout_width="24dp" android:layout_height="24dp" android:layout_alignParentEnd="true" android:src="@android:drawable/btn_star_big_off" />
+                        <TextView android:id="@+id/txt3" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/img3" android:layout_marginTop="8dp" android:text="Kursi Lipat" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/txt3" android:text="Rp150.000" android:textColor="#F26522" android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Produk 4 - Meja Kerja -->
+                <androidx.cardview.widget.CardView android:id="@+id/cardProduk4" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp">
+                        <ImageView android:id="@+id/img4" android:layout_width="match_parent" android:layout_height="120dp" android:scaleType="centerCrop" android:src="@drawable/mejakerja" />
+                        <ImageView android:id="@+id/btn_star_4" android:layout_width="24dp" android:layout_height="24dp" android:layout_alignParentEnd="true" android:src="@android:drawable/btn_star_big_off" />
+                        <TextView android:id="@+id/txt4" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/img4" android:layout_marginTop="8dp" android:text="Meja Kerja" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/txt4" android:text="Rp899.000" android:textColor="#F26522" android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Produk 5 - Lampu Belajar -->
+                <androidx.cardview.widget.CardView android:id="@+id/cardProduk5" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp">
+                        <ImageView android:id="@+id/img5" android:layout_width="match_parent" android:layout_height="120dp" android:scaleType="centerCrop" android:src="@drawable/lampubelajar" />
+                        <ImageView android:id="@+id/btn_star_5" android:layout_width="24dp" android:layout_height="24dp" android:layout_alignParentEnd="true" android:src="@android:drawable/btn_star_big_off" />
+                        <TextView android:id="@+id/txt5" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/img5" android:layout_marginTop="8dp" android:text="Lampu Belajar" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/txt5" android:text="Rp75.000" android:textColor="#F26522" android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Produk 6 - Rak Sepatu -->
+                <androidx.cardview.widget.CardView android:id="@+id/cardProduk6" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp">
+                        <ImageView android:id="@+id/img6" android:layout_width="match_parent" android:layout_height="120dp" android:scaleType="centerCrop" android:src="@drawable/raksepatu" />
+                        <ImageView android:id="@+id/btn_star_6" android:layout_width="24dp" android:layout_height="24dp" android:layout_alignParentEnd="true" android:src="@android:drawable/btn_star_big_off" />
+                        <TextView android:id="@+id/txt6" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/img6" android:layout_marginTop="8dp" android:text="Rak Sepatu" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/txt6" android:text="Rp120.000" android:textColor="#F26522" android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Produk 7 - Panci Set -->
+                <androidx.cardview.widget.CardView android:id="@+id/cardProduk7" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp">
+                        <ImageView android:id="@+id/img7" android:layout_width="match_parent" android:layout_height="120dp" android:scaleType="centerCrop" android:src="@drawable/panciset" />
+                        <ImageView android:id="@+id/btn_star_7" android:layout_width="24dp" android:layout_height="24dp" android:layout_alignParentEnd="true" android:src="@android:drawable/btn_star_big_off" />
+                        <TextView android:id="@+id/txt7" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/img7" android:layout_marginTop="8dp" android:text="Panci Set" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/txt7" android:text="Rp350.000" android:textColor="#F26522" android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Produk 8 - Sapu Pengki -->
+                <androidx.cardview.widget.CardView android:id="@+id/cardProduk8" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp">
+                        <ImageView android:id="@+id/img8" android:layout_width="match_parent" android:layout_height="120dp" android:scaleType="centerCrop" android:src="@drawable/sapupengki" />
+                        <ImageView android:id="@+id/btn_star_8" android:layout_width="24dp" android:layout_height="24dp" android:layout_alignParentEnd="true" android:src="@android:drawable/btn_star_big_off" />
+                        <TextView android:id="@+id/txt8" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/img8" android:layout_marginTop="8dp" android:text="Sapu Pengki" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/txt8" android:text="Rp55.000" android:textColor="#F26522" android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Produk 9 - Blender Juicer -->
+                <androidx.cardview.widget.CardView android:id="@+id/cardProduk9" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp">
+                        <ImageView android:id="@+id/img9" android:layout_width="match_parent" android:layout_height="120dp" android:scaleType="centerCrop" android:src="@drawable/blenderjuicer" />
+                        <ImageView android:id="@+id/btn_star_9" android:layout_width="24dp" android:layout_height="24dp" android:layout_alignParentEnd="true" android:src="@android:drawable/btn_star_big_off" />
+                        <TextView android:id="@+id/txt9" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/img9" android:layout_marginTop="8dp" android:text="Blender Juicer" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/txt9" android:text="Rp450.000" android:textColor="#F26522" android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Produk 10 - Timbangan -->
+                <androidx.cardview.widget.CardView android:id="@+id/cardProduk10" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp">
+                        <ImageView android:id="@+id/img10" android:layout_width="match_parent" android:layout_height="120dp" android:scaleType="centerCrop" android:src="@drawable/timbangan" />
+                        <ImageView android:id="@+id/btn_star_10" android:layout_width="24dp" android:layout_height="24dp" android:layout_alignParentEnd="true" android:src="@android:drawable/btn_star_big_off" />
+                        <TextView android:id="@+id/txt10" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/img10" android:layout_marginTop="8dp" android:text="Timbangan" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/txt10" android:text="Rp95.000" android:textColor="#F26522" android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Produk 11 - Kotak Makan -->
+                <androidx.cardview.widget.CardView android:id="@+id/cardProduk11" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp">
+                        <ImageView android:id="@+id/img11" android:layout_width="match_parent" android:layout_height="120dp" android:scaleType="centerCrop" android:src="@drawable/kotakmakan" />
+                        <ImageView android:id="@+id/btn_star_11" android:layout_width="24dp" android:layout_height="24dp" android:layout_alignParentEnd="true" android:src="@android:drawable/btn_star_big_off" />
+                        <TextView android:id="@+id/txt11" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/img11" android:layout_marginTop="8dp" android:text="Kotak Makan" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/txt11" android:text="Rp45.000" android:textColor="#F26522" android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Produk 12 - Botol Minum -->
+                <androidx.cardview.widget.CardView android:id="@+id/cardProduk12" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp">
+                        <ImageView android:id="@+id/img12" android:layout_width="match_parent" android:layout_height="120dp" android:scaleType="centerCrop" android:src="@drawable/botolminum" />
+                        <ImageView android:id="@+id/btn_star_12" android:layout_width="24dp" android:layout_height="24dp" android:layout_alignParentEnd="true" android:src="@android:drawable/btn_star_big_off" />
+                        <TextView android:id="@+id/txt12" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/img12" android:layout_marginTop="8dp" android:text="Botol Minum" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/txt12" android:text="Rp85.000" android:textColor="#F26522" android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Produk 13 - Gantungan -->
+                <androidx.cardview.widget.CardView android:id="@+id/cardProduk13" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp">
+                        <ImageView android:id="@+id/img13" android:layout_width="match_parent" android:layout_height="120dp" android:scaleType="centerCrop" android:src="@drawable/gantunganbaju" />
+                        <ImageView android:id="@+id/btn_star_13" android:layout_width="24dp" android:layout_height="24dp" android:layout_alignParentEnd="true" android:src="@android:drawable/btn_star_big_off" />
+                        <TextView android:id="@+id/txt13" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/img13" android:layout_marginTop="8dp" android:text="Gantungan" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/txt13" android:text="Rp25.000" android:textColor="#F26522" android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Produk 14 - Karpet -->
+                <androidx.cardview.widget.CardView android:id="@+id/cardProduk14" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp">
+                        <ImageView android:id="@+id/img14" android:layout_width="match_parent" android:layout_height="120dp" android:scaleType="centerCrop" android:src="@drawable/karpet" />
+                        <ImageView android:id="@+id/btn_star_14" android:layout_width="24dp" android:layout_height="24dp" android:layout_alignParentEnd="true" android:src="@android:drawable/btn_star_big_off" />
+                        <TextView android:id="@+id/txt14" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/img14" android:layout_marginTop="8dp" android:text="Karpet" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/txt14" android:text="Rp210.000" android:textColor="#F26522" android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Produk 15 - Payung -->
+                <androidx.cardview.widget.CardView android:id="@+id/cardProduk15" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp">
+                        <ImageView android:id="@+id/img15" android:layout_width="match_parent" android:layout_height="120dp" android:scaleType="centerCrop" android:src="@drawable/payung" />
+                        <ImageView android:id="@+id/btn_star_15" android:layout_width="24dp" android:layout_height="24dp" android:layout_alignParentEnd="true" android:src="@android:drawable/btn_star_big_off" />
+                        <TextView android:id="@+id/txt15" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/img15" android:layout_marginTop="8dp" android:text="Payung" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/txt15" android:text="Rp65.000" android:textColor="#F26522" android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Produk 16 - Cermin -->
+                <androidx.cardview.widget.CardView android:id="@+id/cardProduk16" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp">
+                        <ImageView android:id="@+id/img16" android:layout_width="match_parent" android:layout_height="120dp" android:scaleType="centerCrop" android:src="@drawable/cermin" />
+                        <ImageView android:id="@+id/btn_star_16" android:layout_width="24dp" android:layout_height="24dp" android:layout_alignParentEnd="true" android:src="@android:drawable/btn_star_big_off" />
+                        <TextView android:id="@+id/txt16" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/img16" android:layout_marginTop="8dp" android:text="Cermin" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/txt16" android:text="Rp185.000" android:textColor="#F26522" android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Produk 17 - Keset Kaki -->
+                <androidx.cardview.widget.CardView android:id="@+id/cardProduk17" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp">
+                        <ImageView android:id="@+id/img17" android:layout_width="match_parent" android:layout_height="120dp" android:scaleType="centerCrop" android:src="@drawable/kesetkaki" />
+                        <ImageView android:id="@+id/btn_star_17" android:layout_width="24dp" android:layout_height="24dp" android:layout_alignParentEnd="true" android:src="@android:drawable/btn_star_big_off" />
+                        <TextView android:id="@+id/txt17" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/img17" android:layout_marginTop="8dp" android:text="Keset Kaki" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/txt17" android:text="Rp15.000" android:textColor="#F26522" android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Produk 18 - Gorden -->
+                <androidx.cardview.widget.CardView android:id="@+id/cardProduk18" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp">
+                        <ImageView android:id="@+id/img18" android:layout_width="match_parent" android:layout_height="120dp" android:scaleType="centerCrop" android:src="@drawable/gorden" />
+                        <ImageView android:id="@+id/btn_star_18" android:layout_width="24dp" android:layout_height="24dp" android:layout_alignParentEnd="true" android:src="@android:drawable/btn_star_big_off" />
+                        <TextView android:id="@+id/txt18" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/img18" android:layout_marginTop="8dp" android:text="Gorden" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/txt18" android:text="Rp110.000" android:textColor="#F26522" android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Produk 19 - Hiasan -->
+                <androidx.cardview.widget.CardView android:id="@+id/cardProduk19" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp">
+                        <ImageView android:id="@+id/img19" android:layout_width="match_parent" android:layout_height="120dp" android:scaleType="centerCrop" android:src="@drawable/hiasan" />
+                        <ImageView android:id="@+id/btn_star_19" android:layout_width="28dp" android:layout_height="28dp" android:layout_alignParentEnd="true" android:src="@android:drawable/btn_star_big_off" />
+                        <TextView android:id="@+id/txt19" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/img19" android:layout_marginTop="8dp" android:text="Hiasan" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/txt19" android:text="Rp35.000" android:textColor="#F26522" android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Produk 20 - Box Kotak -->
+                <androidx.cardview.widget.CardView android:id="@+id/cardProduk20" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_margin="6dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="10dp">
+                        <ImageView android:id="@+id/img20" android:layout_width="match_parent" android:layout_height="120dp" android:scaleType="centerCrop" android:src="@drawable/boxkotak" />
+                        <ImageView android:id="@+id/btn_star_20" android:layout_width="28dp" android:layout_height="28dp" android:layout_alignParentEnd="true" android:src="@android:drawable/btn_star_big_off" />
+                        <TextView android:id="@+id/txt20" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/img20" android:layout_marginTop="8dp" android:text="Box Kotak" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/txt20" android:text="Rp60.000" android:textColor="#F26522" android:textStyle="bold" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- 3. BOTTOM NAVIGATION (SUDAH DIBERI ID) -->
+    <LinearLayout
+        android:id="@+id/bottomNav"        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="#FFFFFF"
+        android:elevation="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Tombol Beranda -->
+        <LinearLayout
+            android:id="@+id/nav_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_today"
+                app:tint="#F26522" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Beranda"
+                android:textColor="#F26522"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Tombol Kategori -->
+        <LinearLayout
+            android:id="@+id/nav_kategori"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_sort_by_size"
+                app:tint="#888888" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kategori"
+                android:textColor="#888888"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- Tombol Scan -->
+        <LinearLayout
+            android:id="@+id/nav_scan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_camera"
+                app:tint="#888888" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scan"
+                android:textColor="#888888"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+
+        <!-- Tombol Akun (DITAMBAHKAN ID) -->
+        <LinearLayout
+            android:id="@+id/nav_profile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_myplaces"
+                app:tint="#888888" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Akun"
+                android:textColor="#888888"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
