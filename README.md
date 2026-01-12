@@ -19,4 +19,22 @@ Aplikasi Rujukan : Rupa-Rupa https://play.google.com/store/apps/details?id=com.m
 - Pemesanan Produk
   Memungkinkan pengguna melakukan pemesanan perabotan secara sederhana dan efisien.
 4. Tangkapan Layar
-  
+  ## Tampilan Aplikasi
+#### Login & Registrasi
+<p align="center">
+  <img src="images/login.jpeg" width="180"/>
+  <img src="images/registrasi.jpeg" width="180"/>
+</p>
+
+#### Beranda & Search
+<p align="center">
+  <img src="images/login.jpeg" width="180"/>
+  <img src="images/menu.jpeg" width="180"/>
+  <img src="images/search.jpeg" width="180"/>
+  <img src="images/koleksi.jpeg" width="180"/>
+  <img src="images/keranjang.jpeg" width="180"/>
+  <img src="images/scan.jpeg" width="180"/>
+  <img src="images/produkfavorit.jpeg" width="180"/>
+  <img src="images/profil.jpeg" width="180"/>
+</p>
+5. 
